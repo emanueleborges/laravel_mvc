@@ -15,9 +15,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/series');
 });
 
-Route::get('/series',       [SeriesController::class, 'index']);
-Route::get('/series/create', [SeriesController::class, 'create']);
-Route::post('/series/salvar', [SeriesController::class, 'store']);
+Route::resource('/series', SeriesController::class)
+    ->only(['index','create','store','destroy','edit','update']);
+
+// Route::delete('/series/destroy/{serie}',[SeriesController::class, 'destroy'])
+//     ->name('series.destroy');
+
+// Route::post('/series/destroy/{serie}',[SeriesController::class, 'destroy'])
+// ->name('series.destroy');
+
+// Route::resource('/series', SeriesController::class);
+
+// Route::controller(SeriesController::class)->group( function (){
+//     Route::get('/series/',         'index')->name('series.index');
+//     Route::get('/series/create',  'create')->name('series.create');
+//     Route::post('/series/store', 'store')->name('series.store');
+// });
+
+// aula rotas
+// Route::controller(SeriesController::class)->group( function (){
+//     Route::get('/series',         'index');
+//     Route::get('/series/create',  'create');
+//     Route::post('/series/salvar', 'store');
+// });
+
+// aula mvc
+// Route::get('/series',       [SeriesController::class, 'index']);
+// Route::get('/series/create', [SeriesController::class, 'create']);
+// Route::post('/series/salvar', [SeriesController::class, 'store']);
