@@ -86,6 +86,7 @@ class SeriesController extends Controller
      */
     public function edit(Serie $series, Request $request)
     {
+        //dd($series->temporadas);
         return view('series.edit')->with('serie', $series);
     }
 
