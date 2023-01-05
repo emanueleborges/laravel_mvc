@@ -8,7 +8,7 @@
         <input type="text"
                id="nome"
                name="nome"
-               class="form-control mt-4"
+               class="form-control mb-4"
                @isset($nome)value="{{ $nome }}"@endisset>
         <button type='submit' class="btn btn-success"> Salvar </button>
         <a href="/series" class="btn btn-primary "> Return </a>

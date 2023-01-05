@@ -12,7 +12,11 @@
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">
 
-                {{$serie->nome}}
+                <a href="{{ route('seasons.index', $serie->id) }}" class="btn btn-success mb-1">
+                     {{$serie->nome}}
+                </a>
+
+
                 <span class="d-flex">
                     <a href="{{ route('series.edit', $serie->id ) }} " class="href btn btn-primary btn-sm "> Editar </a>
                     <form action="{{ route('series.destroy', $serie->id) }} " method="post">
@@ -27,4 +31,11 @@
             </li>
         @endforeach
     </ul>
+
+    <script>
+        const series = {{ Js::from($series)}}
+        console.log(series)
+    </script>
+
+
 </x-layout>
